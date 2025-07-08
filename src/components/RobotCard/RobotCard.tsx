@@ -34,10 +34,14 @@ export const RobotCard: React.FC<RobotProps> = ({
         </div>
       </div>
 
-      <img className="robot-image" src={image} alt={`${model} robot`} />
+      <img
+        className="robot-image"
+        src={image}
+        alt={`robot ${robotId}, model ${model}`}
+      />
 
       <div className="robot-central-info">
-        <StatusBadge status={localStatus} />
+        <StatusBadge aria-live="polite" status={localStatus} />
         <BatteryIndicator value={batteryLevel} />
       </div>
       {localStatus === "On Delivery" && currentOrder && (
@@ -52,6 +56,7 @@ export const RobotCard: React.FC<RobotProps> = ({
       <button
         onClick={handleReturnToBase}
         disabled={!canReturnToBase}
+        aria-disabled={!canReturnToBase}
         className="return-button"
         aria-label="Return to Base"
       >

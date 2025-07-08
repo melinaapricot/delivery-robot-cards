@@ -19,13 +19,13 @@ export const DeliveryInfo: React.FC<DeliveryInfoProps> = ({
     <div className="delivery-info">
       <div className="delivery-cardlet">
         <h3 className="cardlet-title">
-          <House size={14} /> Address:
+          <House aria-hidden="true" size={14} /> Address:
         </h3>
         <p className="cardlet-value">{deliveryAddress}</p>
       </div>
       <div className="delivery-cardlet">
         <h3 className="cardlet-title">
-          <MapPin size={14} /> Location:
+          <MapPin aria-hidden="true" size={14} /> Location:
         </h3>
         <p className="cardlet-value location">
           {location.latitude}, {location.longitude}
@@ -33,13 +33,13 @@ export const DeliveryInfo: React.FC<DeliveryInfoProps> = ({
       </div>
       <div className="delivery-cardlet">
         <h3 className="cardlet-title">
-          <Package size={14} /> Order ID:
+          <Package aria-hidden="true" size={14} /> Order ID:
         </h3>
         <p className="cardlet-value">{orderId}</p>
       </div>
       <div className="delivery-cardlet">
         <h3 className="cardlet-title">
-          <Clock size={14} /> ETA:
+          <Clock aria-hidden="true" size={14} /> ETA:
         </h3>
         <p className="cardlet-value">
           {new Date(estimatedDelivery).toDateString()}
