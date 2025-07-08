@@ -1,0 +1,79 @@
+.robot-card {
+  min-width: 0;
+  padding: 1rem;
+  width: 100%;
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--box-shadow);
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: fit-content;
+  max-width: 25rem;
+
+  @media (min-width: 768px) {
+    width: 20rem;
+  }
+}
+
+.robot-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.robot-id {
+  font-size: var(--font-large);
+  font-weight: 500;
+}
+
+.robot-model {
+  font-weight: 400;
+  font-size: var(--font-small);
+
+}
+
+.robot-central-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.robot-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius-small);
+  background-color: var(--status-on-delivery-bg);
+  border: 1px solid var(--status-on-delivery-border);
+  font-weight: 500;
+  font-size: var(--font-small);
+  max-width: fit-content;
+}
+
+.robot-status.idle {
+  background-color: var(--status-idle-bg);
+  border: 1px solid var(--status-idle-border);
+  color: var(--status-idle-text);
+}
+
+.robot-status.on-delivery::before,
+.robot-status.idle::before {
+  font-size: 0.5rem;
+  margin-right: 0.1rem;
+}
+
+.robot-status.idle::before {
+  content: "⚪";
+}
+.robot-status.on-delivery::before {
+ content: "🟢";
+";
+}
+
+.robot-image {
+  max-height: 6.25rem;
+  width: 100%;
+  object-fit: contain;
+}

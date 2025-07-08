@@ -1,0 +1,60 @@
+.battery-wrapper {
+  display: flex;
+  align-items: center;
+  width: 5.25rem;
+  position: relative;
+}
+
+.battery-background {
+  position: relative;
+  flex: 1;
+  height: 1.875rem;
+  background-color: var(--battery-bg);
+  border-radius: var(--border-radius-round);
+  border: 1px solid var(--battery-border);
+  overflow: hidden;
+}
+
+.battery-bar {
+  height: 100%;
+  background-color: var(--battery-high);
+  border-radius: var(--border-radius-round);
+  transition: width 0.3s ease;
+}
+
+.battery-icon {
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--white);
+  fill: var(--white);
+  pointer-events: none;
+  z-index: 2;
+  stroke: #b4b4b438;
+}
+
+.battery-percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-size: var(--font-small);
+  font-weight: 500;
+  pointer-events: none;
+  color: var(--text);
+  text-opacity: 0.8;
+}
+
+.battery-high {
+  background-color: var(--battery-high);
+}
+
+.battery-medium {
+  background-color: var(--battery-medium);
+}
+
+.battery-low {
+  background-color: var(--battery-low);
+}
