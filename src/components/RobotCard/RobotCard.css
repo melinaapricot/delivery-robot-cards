@@ -10,21 +10,13 @@
   gap: 1rem;
   height: fit-content;
   max-width: 25rem;
-  position: relative; 
-  transition: transform 0.3s ease; 
-
+  position: relative;
 
   @media (min-width: 768px) {
     width: 20rem;
   }
 }
-.robot-card.expanding {
-  transform: translateY(0); 
-}
 
-.robot-card.collapsing {
-  transform: translateY(calc(50% - 50%)); 
-}
 .robot-header {
   display: flex;
   align-items: center;
@@ -39,72 +31,12 @@
 .robot-model {
   font-weight: var(--font-weight-regular);
   font-size: var(--font-small);
-
 }
 
 .robot-central-info {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.robot-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: var(--border-radius-small);
-  background-color: var(--status-on-delivery-bg);
-  border: 1px solid var(--status-on-delivery-border);
-  font-weight: var(--font-weight-regular);
-  font-size: var(--font-small);
-  max-width: fit-content;
-}
-
-.robot-status.idle {
-  background-color: var(--status-idle-bg);
-  border: 1px solid var(--status-idle-border);
-  color: var(--status-idle-text);
-}
-
-.robot-status.error {
-  background-color: var(--status-error-bg);
-  border: 1px solid var(--status-error-border);
-  color: var(--status-error-text);
-}
-
-.robot-status.returning {
-  background-color: var(--status-returning-bg);
-  border: 1px solid var(--status-returning-border);
-  color: var(--status-returning-text);
-}
-
-
-.robot-status.on-delivery::before,
-.robot-status.idle::before {
-  font-size: 0.5rem;
-  margin-right: 0.1rem;
-}
-
-.robot-status.idle::before {
-  content: "⚪";
-}
-
-.robot-status.on-delivery::before {
- content: "🟢";
-";
-}
-
-.robot-status.error::before {
-  content: "🔴"; 
-  font-size: 0.5rem;
-  margin-right: 0.1rem;
-}
-
-.robot-status.returning::before {
-  content: "🟠"; 
-  font-size: 0.5rem;
-  margin-right: 0.1rem;
 }
 
 .robot-image {
@@ -138,7 +70,7 @@
 
 .return-button:focus {
   outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(64, 103, 195, 0.5); 
+  box-shadow: 0 0 0 0.2rem rgba(64, 103, 195, 0.5);
 }
 
 .return-button:disabled {

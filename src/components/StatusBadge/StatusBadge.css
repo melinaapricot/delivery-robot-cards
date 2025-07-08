@@ -1,0 +1,57 @@
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius-small);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-small);
+  max-width: fit-content;
+}
+
+.status-indicator.idle {
+  background-color: var(--status-idle-bg);
+  border: 1px solid var(--status-idle-border);
+  color: var(--status-idle-text);
+}
+
+.status-indicator.on-delivery {
+  background-color: var(--status-on-delivery-bg);
+  border: 1px solid var(--status-on-delivery-border);
+}
+
+.status-indicator.error {
+  background-color: var(--status-error-bg);
+  border: 1px solid var(--status-error-border);
+  color: var(--status-error-text);
+}
+
+.status-indicator.returning {
+  background-color: var(--status-returning-bg);
+  border: 1px solid var(--status-returning-border);
+  color: var(--status-returning-text);
+}
+
+.status-indicator.idle::before {
+  content: "⚪";
+  font-size: 0.5rem;
+  margin-right: 0.1rem;
+}
+
+.status-indicator.on-delivery::before {
+  content: "🟢";
+  font-size: 0.5rem;
+  margin-right: 0.1rem;
+}
+
+.status-indicator.error::before {
+  content: "🔴";
+  font-size: 0.5rem;
+  margin-right: 0.1rem;
+}
+
+.status-indicator.returning::before {
+  content: "🟠";
+  font-size: 0.5rem;
+  margin-right: 0.1rem;
+}

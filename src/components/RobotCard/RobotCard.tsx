@@ -4,6 +4,7 @@ import type { RobotProps } from "../../types/types";
 import clsx from "clsx";
 import { BatteryIndicator } from "../BatteryIndicator/BatteryIndicator";
 import { DeliveryInfo } from "../DeliveryInfo/DeliveryInfo";
+import { StatusBadge } from "../StatusBadge/StatusBadge";
 
 export const RobotCard: React.FC<RobotProps> = ({
   robotId,
@@ -25,22 +26,8 @@ export const RobotCard: React.FC<RobotProps> = ({
     }
   };
 
-  const getRobotStatusClass = (status: string) => {
-    return clsx("robot-status", {
-      idle: status.toLowerCase() === "idle",
-      "on-delivery": status.toLowerCase() === "on delivery",
-      error: status.toLowerCase() === "error",
-      returning: status.toLowerCase() === "returning",
-    });
-  };
-
   return (
-    <div
-      className={clsx("robot-card", {
-        expanding: localStatus === "On Delivery",
-        collapsing: localStatus !== "On Delivery",
-      })}
-    >
+    <div className="robot-card">
       <div className="robot-header">
         <div className="robot-header-left">
           <h2 className="robot-id">{robotId}</h2>
@@ -51,7 +38,7 @@ export const RobotCard: React.FC<RobotProps> = ({
       <img className="robot-image" src={image} alt={`${model} robot`} />
 
       <div className="robot-central-info">
-        <p className={getRobotStatusClass(localStatus)}>{localStatus}</p>
+        <StatusBadge status={localStatus} />
         <BatteryIndicator value={batteryLevel} />
       </div>
       {localStatus === "On Delivery" && currentOrder && (
