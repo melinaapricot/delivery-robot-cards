@@ -45,6 +45,21 @@
   object-fit: contain;
 }
 
+.delivery-wrapper {
+  max-height: 1000px;
+  opacity: 1;
+  transform: translateY(0);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.delivery-wrapper.collapsed {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-0.25rem);
+  pointer-events: none;
+}
+
 .return-button {
   padding: 0.7rem 1rem;
   align-self: center;

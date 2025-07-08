@@ -44,14 +44,19 @@ export const RobotCard: React.FC<RobotProps> = ({
         <StatusBadge aria-live="polite" status={localStatus} />
         <BatteryIndicator value={batteryLevel} />
       </div>
-      {localStatus === "On Delivery" && currentOrder && (
+      <div
+        className={`delivery-wrapper ${
+          localStatus === "On Delivery" ? "expanded" : "collapsed"
+        }`}
+        aria-hidden={localStatus !== "On Delivery"}
+      >
         <DeliveryInfo
-          deliveryAddress={currentOrder.deliveryAddress}
+          deliveryAddress={currentOrder?.deliveryAddress ?? ""}
           location={location}
-          orderId={currentOrder.orderId}
-          estimatedDelivery={currentOrder.estimatedDelivery}
+          orderId={currentOrder?.orderId ?? ""}
+          estimatedDelivery={currentOrder?.estimatedDelivery ?? ""}
         />
-      )}
+      </div>
 
       <button
         onClick={handleReturnToBase}
