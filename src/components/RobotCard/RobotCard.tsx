@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./RobotCard.css";
 import type { RobotProps } from "../../types/types";
-import clsx from "clsx";
 import { BatteryIndicator } from "../BatteryIndicator/BatteryIndicator";
 import { DeliveryInfo } from "../DeliveryInfo/DeliveryInfo";
 import { StatusBadge } from "../StatusBadge/StatusBadge";
