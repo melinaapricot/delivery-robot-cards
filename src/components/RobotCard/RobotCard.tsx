@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./RobotCard.css";
 import type { RobotProps } from "../../types/types";
 import clsx from "clsx";
@@ -14,8 +14,33 @@ export const RobotCard: React.FC<RobotProps> = ({
   currentOrder,
   image,
 }) => {
+  const [localStatus, setLocalStatus] = useState(status);
+
+  const canReturnToBase =
+    localStatus === "Idle" || localStatus === "On Delivery";
+
+  const handleReturnToBase = () => {
+    if (canReturnToBase) {
+      setLocalStatus("Returning");
+    }
+  };
+
+  const getRobotStatusClass = (status: string) => {
+    return clsx("robot-status", {
+      idle: status.toLowerCase() === "idle",
+      "on-delivery": status.toLowerCase() === "on delivery",
+      error: status.toLowerCase() === "error",
+      returning: status.toLowerCase() === "returning",
+    });
+  };
+
   return (
-    <div className="robot-card">
+    <div
+      className={clsx("robot-card", {
+        expanding: localStatus === "On Delivery",
+        collapsing: localStatus !== "On Delivery",
+      })}
+    >
       <div className="robot-header">
         <div className="robot-header-left">
           <h2 className="robot-id">{robotId}</h2>
@@ -24,18 +49,12 @@ export const RobotCard: React.FC<RobotProps> = ({
       </div>
 
       <img className="robot-image" src={image} alt={`${model} robot`} />
+
       <div className="robot-central-info">
-        <p
-          className={clsx("robot-status", {
-            idle: status.toLowerCase() === "idle",
-            "on-delivery": status.toLowerCase() === "on delivery",
-          })}
-        >
-          {status}
-        </p>
-        <BatteryIndicator value={batteryLevel}></BatteryIndicator>
+        <p className={getRobotStatusClass(localStatus)}>{localStatus}</p>
+        <BatteryIndicator value={batteryLevel} />
       </div>
-      {status === "On Delivery" && currentOrder && (
+      {localStatus === "On Delivery" && currentOrder && (
         <DeliveryInfo
           deliveryAddress={currentOrder.deliveryAddress}
           location={location}
@@ -43,6 +62,15 @@ export const RobotCard: React.FC<RobotProps> = ({
           estimatedDelivery={currentOrder.estimatedDelivery}
         />
       )}
+
+      <button
+        onClick={handleReturnToBase}
+        disabled={!canReturnToBase}
+        className="return-button"
+        aria-label="Return to Base"
+      >
+        Return to Base
+      </button>
     </div>
   );
 };

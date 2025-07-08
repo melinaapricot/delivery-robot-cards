@@ -20,8 +20,12 @@
   --status-idle-bg: #f8f8f8;
   --status-idle-border: #bdbdbd;
   --status-idle-text: #4d4d4d;
-  --status-on-delivery-bg: #9fe4db87;
-  --status-on-delivery-border: #9fe4dbfc;
+  --status-on-delivery-bg: #dff3f191;
+  --status-on-delivery-border: #9fe4db8f;
+  --status-error-bg: rgba(238, 145, 145, 0.24);
+  --status-error-border: rgba(190, 29, 29, 0.16);
+  --status-returning-bg: rgba(255, 193, 7, 0.24);
+  --status-returning-border: rgba(255, 152, 0, 0.16);
 
   /* Battery Colors */
   --battery-high: #9ce58f;
@@ -47,6 +51,10 @@
   --font-small: 0.75rem;
   --font-medium: 1rem;
   --font-large: 1.2rem;
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
 }
 
 * {

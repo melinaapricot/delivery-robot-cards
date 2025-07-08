@@ -10,12 +10,21 @@
   gap: 1rem;
   height: fit-content;
   max-width: 25rem;
+  position: relative; 
+  transition: transform 0.3s ease; 
+
 
   @media (min-width: 768px) {
     width: 20rem;
   }
 }
+.robot-card.expanding {
+  transform: translateY(0); 
+}
 
+.robot-card.collapsing {
+  transform: translateY(calc(50% - 50%)); 
+}
 .robot-header {
   display: flex;
   align-items: center;
@@ -24,11 +33,11 @@
 
 .robot-id {
   font-size: var(--font-large);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
 }
 
 .robot-model {
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   font-size: var(--font-small);
 
 }
@@ -47,7 +56,7 @@
   border-radius: var(--border-radius-small);
   background-color: var(--status-on-delivery-bg);
   border: 1px solid var(--status-on-delivery-border);
-  font-weight: 500;
+  font-weight: var(--font-weight-regular);
   font-size: var(--font-small);
   max-width: fit-content;
 }
@@ -58,6 +67,19 @@
   color: var(--status-idle-text);
 }
 
+.robot-status.error {
+  background-color: var(--status-error-bg);
+  border: 1px solid var(--status-error-border);
+  color: var(--status-error-text);
+}
+
+.robot-status.returning {
+  background-color: var(--status-returning-bg);
+  border: 1px solid var(--status-returning-border);
+  color: var(--status-returning-text);
+}
+
+
 .robot-status.on-delivery::before,
 .robot-status.idle::before {
   font-size: 0.5rem;
@@ -67,13 +89,59 @@
 .robot-status.idle::before {
   content: "⚪";
 }
+
 .robot-status.on-delivery::before {
  content: "🟢";
 ";
+}
+
+.robot-status.error::before {
+  content: "🔴"; 
+  font-size: 0.5rem;
+  margin-right: 0.1rem;
+}
+
+.robot-status.returning::before {
+  content: "🟠"; 
+  font-size: 0.5rem;
+  margin-right: 0.1rem;
 }
 
 .robot-image {
   max-height: 6.25rem;
   width: 100%;
   object-fit: contain;
+}
+
+.return-button {
+  padding: 0.7rem 1rem;
+  align-self: center;
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.06em;
+  border: none;
+  border-radius: var(--border-radius-small);
+  background-color: #4067c3;
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    width: fit-content;
+  }
+}
+
+.return-button:hover {
+  opacity: 0.8;
+}
+
+.return-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(64, 103, 195, 0.5); 
+}
+
+.return-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
 }

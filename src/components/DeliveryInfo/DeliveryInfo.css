@@ -29,7 +29,7 @@
 }
 .cardlet-title {
   font-size: var(--font-xsmall);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   letter-spacing: 0.08em;
   gap: 0.25rem;
   color: #595959;
@@ -42,7 +42,7 @@
 
 .cardlet-value {
   font-size: var(--font-small);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   word-wrap: break-word;
   color: var(--text);
 }
